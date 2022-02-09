@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+section{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+#grid_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 400px;
+
+}
+#grid_container div{
+    height: 25px;
+    width: 25px;
+    border: 1px solid black;
+}
+.control_panel{
+    text-align: center;
+    width: 200px;
+    height: 100%;
+    margin: 0 50px;
+}
+
+.color{
+    background-color: white;
+}
+
+#options{
+    border: black 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#reset{
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    margin: 0 auto;
+    border: black solid 1px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* .rainbow{
+    background-color: ;
+} */
