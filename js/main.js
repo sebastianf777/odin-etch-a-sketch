@@ -4,6 +4,8 @@ const color_selection = document.getElementById("color_selection");
 const random_color = document.getElementById("random");
 const multicolor_button = document.getElementById('multicolor')
 const eraser = document.getElementById('eraser')
+const grid_size_button = document.getElementById('grid_size')
+let div_grid;
 let grid_size = 256;
 let grid_children;
 let random_value;
@@ -11,15 +13,26 @@ let color_value = "black";
 let mouse_state = false;
 let multicolor_mode = false;
 //first the initial loop to load the default grid
-for (let i = 0; i < grid_size; i++) {
-  let div_grid = document.createElement("div");
-  div_grid.classList.add("color");
-  grid.appendChild(div_grid);
-  grid_children = document.querySelectorAll(".color");
-  div_grid.addEventListener("dragstart", (e) => {
-    e.preventDefault();
-  });
+
+function createGrid() {
+  for (let i = 0; i < grid_size; i++) {
+
+    div_grid = document.createElement("div");
+    div_grid.classList.add("color");
+    grid.appendChild(div_grid);
+    grid_children = document.querySelectorAll(".color");
+    div_grid.addEventListener("dragstart", (e) => {
+      e.preventDefault();
+    });
+  }
+
 }
+
+window.addEventListener('load', () => {
+    createGrid()
+})
+
+
 
 //while mouse down and over to get functions working
 
@@ -100,3 +113,19 @@ multicolor_button.addEventListener('click', () => {
   multicolor_mode = true
 })
 
+//GRID SIZE SELECTION
+
+grid_size_button.addEventListener(
+  "input",
+  () => {
+     grid_children_to_erase = grid.getElementsByClassName('color')
+    for (let i = 0; i < grid_children_to_erase.length; i++) {
+      let children_to_erase = grid_children_to_erase[i]
+      children_to_erase.remove()
+      
+    }
+    grid_size = (grid_size_button.value * grid_size_button.value)
+    createGrid()
+  },
+ 
+);
