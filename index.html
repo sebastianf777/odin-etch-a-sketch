@@ -11,13 +11,15 @@
     <section >
       <aside class="control_panel">
           <div id="options">
-              <div id="reset">RESET</div>
-              <div id="selection">
-                <input  type="color" value="#ff0000">
-              </div>
-              <div id="rainbow"></div>
-              <div id="black"></div>
-              <div ></div>
+              <div id="reset" class="options_buttons">RESET</div>
+            
+                <input id="color_selection" class="options_buttons" type="color" value="#000000">
+          
+              <div id='eraser' class="options_buttons"></div>
+              <div id="random" class="options_buttons"></div>
+              <div id="multicolor" class="options_buttons"></div>
+              <input id='grid_size' class="options_buttons" type="range" min="1" max="64" value="16"> 
+
           </div>
       </aside>
       <article id="grid_container"></article>
