@@ -5,6 +5,7 @@ const random_color = document.getElementById("random");
 const multicolor_button = document.getElementById('multicolor')
 const eraser = document.getElementById('eraser')
 const grid_size_button = document.getElementById('grid_size')
+const grid_size_show = document.getElementById('grid_size_show')
 let div_grid;
 let grid_size = 256;
 let grid_children;
@@ -29,6 +30,8 @@ function createGrid() {
 }
 
 window.addEventListener('load', () => {
+  grid_size_show.textContent = `${grid_size_button.value} x ${grid_size_button.value}`
+
     createGrid()
 })
 
@@ -113,19 +116,21 @@ multicolor_button.addEventListener('click', () => {
   multicolor_mode = true
 })
 
-//GRID SIZE SELECTION
+//GRID SIZE SELECTION AND GRID SIZE SELECTION SHOW
 
 grid_size_button.addEventListener(
   "input",
   () => {
      grid_children_to_erase = grid.getElementsByClassName('color')
-    for (let i = 0; i < grid_children_to_erase.length; i++) {
-      let children_to_erase = grid_children_to_erase[i]
-      children_to_erase.remove()
-      
+    for (let i = 0; i < grid_size; i++)  {
+      grid_children_to_erase[0].parentNode.removeChild(grid_children_to_erase[0])
     }
     grid_size = (grid_size_button.value * grid_size_button.value)
+    grid_size_show.textContent = `${grid_size_button.value} x ${grid_size_button.value}`
     createGrid()
   },
  
 );
+
+
+

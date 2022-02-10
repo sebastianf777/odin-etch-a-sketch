@@ -10,19 +10,14 @@ section{
 }
 #grid_container{
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     flex-wrap: wrap;
     width: 400px;
     min-width: 400px;
     height: 400px;
     max-height: 400px;
 }
-#grid_container div{
-    flex-grow: 1;
-    min-width: 5px;
-    min-height: 5px;
-    border: 1px solid black;
-}
+
 .control_panel{
     text-align: center;
     width: 200px;
@@ -32,6 +27,11 @@ section{
 
 .color{
     background-color: white;
+    flex-grow: 1;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
 }
 
 #options{
@@ -77,9 +77,12 @@ input[type="color"]::-webkit-color-swatch-wrapper{
 
 }
 
-#grid_size{
-    cursor: pointer;
-    
+#grid_size, #grid_size_show{
+    cursor: pointer; 
+}
+
+#grid_size_show{
+    border: none;
 }
 /* .rainbow{
     background-color: ;
